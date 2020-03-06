@@ -3,6 +3,7 @@ const app       = express();
 const port      = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
+    // res.send("Hello Quotes!");
     const quotes = [
         "Kegagalan adalah awal dari kehancuran, jangan menyerah sampai hancur",
         "Makan hanya untuk orang lemah",
@@ -26,7 +27,7 @@ app.get('/', (req, res) => {
 
 
     const randNumber = Math.floor(Math.random() * quotes.length-1);
-    res.send(quotes[randNumber]);
+    res.status(200).json(quotes[randNumber]);
 });
 
 app.listen(port, () => {
